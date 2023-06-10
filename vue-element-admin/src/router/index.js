@@ -337,7 +337,18 @@ export const asyncRoutes = [
       }
     ]
   },
-
+  {
+    path: '/management',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/management/index'),
+        name: 'Management',
+        meta: { title: 'Management', icon: 'tab' }
+      }
+    ]
+  },
   // {
   //   path: '/error',
   //   component: Layout,
