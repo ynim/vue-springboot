@@ -23,10 +23,10 @@ public class GcController {
     @RequestMapping("/pageList")
     public ResponseResult getGcjmInfoList(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
                                           @RequestParam(value = "pageSize", defaultValue = "3") Integer pageSize,
-                                          @RequestParam(value = "name", defaultValue = "") String name,
+                                          @RequestParam(value = "scxname", defaultValue = "") String scxname,
                                           PageUtil page) {
         try {
-            List<Gcjm> gcjms = zhInfoService.getGcjm(name, pageNum, pageSize);
+            List<Gcjm> gcjms = zhInfoService.getGcjm(scxname, pageNum, pageSize);
             PageInfo pageInfo = new PageInfo<>(gcjms, pageSize);
             page.setList(pageInfo.getList());
             page.setPageNum(pageNum);
@@ -39,10 +39,10 @@ public class GcController {
         return ResponseResult.SUCCESS(page);
     }
  @RequestMapping("insert")
-    public ResponseResult insertgc(@RequestParam(value = "project")String project,
+    public ResponseResult insertgc(@RequestParam(value = "product")String product,
                                    @RequestParam(value = "scxname")String scxname){
         Gcjm gcjm=new Gcjm();
-        gcjm.setProduct(project);
+        gcjm.setProduct(product);
         gcjm.setScxname(scxname);
         return ResponseResult.SUCCESS(zhInfoService.insertGcjm(gcjm));
  }

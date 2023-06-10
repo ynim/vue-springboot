@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.carbon.mapper.ZhMapper">
 
-    <select id="getNxyjInfoList" parameterType="int" resultType="com.example.carbon.domain.Nxyj">
+    <select id="getNxyjInfoList" resultType="com.example.carbon.domain.Nxyj">
         SELECT * FROM nxyj
     </select>
     <select id="getNxyjcz"  resultType="com.example.carbon.domain.Nxyj">
@@ -118,4 +118,7 @@
     <delete id="deletepr" parameterType="integer">
         delete from processmodel where id = #{id}
     </delete>
+
+
+
 </mapper>
